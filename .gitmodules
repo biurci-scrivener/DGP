@@ -1,0 +1,9 @@
+[submodule "deps/polyscope"]
+	path = deps/polyscope
+	url = https://github.com/nmwsharp/polyscope.git
+[submodule "deps/geometry-central"]
+	path = deps/geometry-central
+	url = https://github.com/nmwsharp/geometry-central.git
+[submodule "deps/ImGuiFileDialog"]
+	path = deps/ImGuiFileDialog
+	url = https://github.com/aiekick/ImGuiFileDialog.git
