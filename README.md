@@ -44,4 +44,6 @@ Please feel free to reach out to the course staff with any questions!
 - Provided skeleton versions of each assignment
 - Wrote container class for coordinating mesh access
 
+All assignments are adapted from those of the [3D Geometry Processing](https://cgg.unibe.ch/course/50/) course at University of Bern. Thanks to David Bommes & the Computer Graphics Group at U. of Bern for sharing these resources!
+
 This repository is adapted from `gc-polyscope-project-template` [(link)](https://github.com/nmwsharp/gc-polyscope-project-template) and relies heavily on the [Geometry Central](https://github.com/nmwsharp/geometry-central/) & [Polyscope](https://github.com/nmwsharp/polyscope) libraries. The interface also makes use of [ImGuiFileDialog](https://github.com/aiekick/ImGuiFileDialog). Many thanks to the developers and maintainers of these projects! 
