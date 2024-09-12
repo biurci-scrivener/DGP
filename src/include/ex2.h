@@ -5,7 +5,7 @@
 #include <memory>
 #include <polyscope/curve_network.h>
 #include <polyscope/surface_mesh.h>
-#include "util.h"
+#include "utils.h"
 #include "FileSystem.h"
 
 using namespace geometrycentral;
