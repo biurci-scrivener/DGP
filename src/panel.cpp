@@ -118,7 +118,8 @@ void Panel::DGPPanel() {
             "sqrt(x^2+y^2)-1=0",
             "y^2-sin(x^2)-1=0",
             "sin(2x+2y)-cos(4xy)=0",
-            "(3x^2 - y^2)^2 * y^2 - (x^2 + y^2)^4"
+            "(3x^2 - y^2)^2 * y^2 - (x^2 + y^2)^4",
+            "Custom"
         };
         AlignTextToFramePadding();
 
