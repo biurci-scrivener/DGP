@@ -5,6 +5,7 @@
 #include "polyscope/point_cloud.h"
 #include "geometrycentral/pointcloud/point_cloud.h"
 #include "geometrycentral/pointcloud/point_position_geometry.h"
+#include <chrono>
 
 using namespace polyscope;
 using geometrycentral::pointcloud::PointPositionGeometry;
