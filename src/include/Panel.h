@@ -8,6 +8,7 @@
 #include "ex2.h"
 #include "ex3.h"
 #include "ex4.h"
+#include "ex5.h"
 #include "ex6.h"
 #include "ex7.h"
 
@@ -17,6 +18,7 @@ static Exercise1 ex1;
 static Exercise2 ex2;
 static Exercise3 ex3;
 static Exercise4 ex4;
+static Exercise5 ex5;
 static Exercise6 ex6;
 static Exercise7 ex7;
 using namespace ImGui;

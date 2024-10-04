@@ -245,6 +245,95 @@ void Panel::DGPPanel() {
         };
     };
 
+    if (CollapsingHeader("Exercise 5", open)){
+        AlignTextToFramePadding();
+
+        static int ex5_func_id = 0;
+        static float ex5_step_size = 0.002;
+        const char* ex5_funs = "f(x,y)\0g(x,y)\0";
+
+        if (Button("Load matrices", full_block_size)) {
+            ex5.load_sparse_matrices();
+        }
+        
+        SetWindowFontScale(1.5f);
+        Text("Part 1");
+        SetWindowFontScale(1.0f);
+
+        if (Button("Run part 1.1", full_block_size)) {
+            ex5.compare_dense_solvers();
+        }; 
+        if (Button("Run part 1.2.1", full_block_size)) {
+            if (ex5.mtx_loaded) {
+                ex5.analyze_sparsity_pattern();
+            } else {
+                polyscope::warning("Please click \"Load matrices\" first.");
+            }
+            
+        };
+        if (Button("Run part 1.2.2", full_block_size)) {
+            ex5.compare_sparse_solvers();
+        };
+
+        SetWindowFontScale(1.5f);
+        Text("Part 2");
+        SetWindowFontScale(1.0f);
+
+        if (Button("Run part 2.1", full_block_size)) {
+            if (ex5.mtx_loaded) {
+                ex5.find_closest_eigenvalues();
+            } else {
+                polyscope::warning("Please click \"Load matrices\" first.");
+            }
+        };
+
+        if (Button("Visualize part 2.2", full_block_size)) {
+            ex5.find_all_eigenvectors_eigenvalues();
+        };
+
+        SetWindowFontScale(1.5f);
+        Text("Part 3");
+        SetWindowFontScale(1.0f);
+        
+        Combo("##ex5_func_id", &ex5_func_id, ex5_funs, 2);
+
+        Text("Step size");
+        SameLine();
+        SliderFloat("##ex5_step_size", &ex5_step_size, 0.001, 0.01, "%.5f");
+        
+
+        if (Button("Plot function")) {
+            if (cur_mesh_id < 0 || cur_mesh_id >= static_cast<int>(fs.objnum)) {
+                polyscope::warning("Please select a mesh first");
+            } else {
+                PolygonInstance* cur_polygon = fs.getCurrentPolygon();
+                ex5.set_mesh(*cur_polygon);
+                ex5.plot_function(ex5_func_id);
+            }
+        }
+
+        if (Button("Run gradient descent")) {
+            if (cur_mesh_id < 0 || cur_mesh_id >= static_cast<int>(fs.objnum)) {
+                polyscope::warning("Please select a mesh first");
+            } else {
+                PolygonInstance* cur_polygon = fs.getCurrentPolygon();
+                ex5.set_mesh(*cur_polygon);
+                ex5.gradient_descent(ex5_func_id, ex5_step_size);
+            }
+        }
+
+        if (Button("Run Newton's method")) {
+            if (cur_mesh_id < 0 || cur_mesh_id >= static_cast<int>(fs.objnum)) {
+                polyscope::warning("Please select a mesh first");
+            } else {
+                PolygonInstance* cur_polygon = fs.getCurrentPolygon();
+                ex5.set_mesh(*cur_polygon);
+                ex5.newtons_method(ex5_func_id);
+            }
+        }
+
+    };
+
     if (CollapsingHeader("Exercise 6", open)) {
         AlignTextToFramePadding();
         static int ex6_cur_laplacian = 0;

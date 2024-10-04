@@ -20,7 +20,8 @@ if ("${CMAKE_CXX_COMPILER_ID}" MATCHES "Clang" OR "${CMAKE_CXX_COMPILER_ID}" STR
 
   # using Clang (linux or apple) or GCC
   message("Using clang/gcc compiler flags")
-  SET(BASE_CXX_FLAGS "-std=c++11 -Wall -Wextra")
+  SET(BASE_CXX_FLAGS "-std=c++20 -Wall -Wextra")
+  SET(CMAKE_CXX_STANDARD 20)
   SET(DISABLED_WARNINGS " -Wno-unused-parameter -Wunused-but-set-variable -Wno-unused-variable -Wno-unused-function -Wno-deprecated-declarations -Wno-missing-braces -Wno-unused-private-field")
   SET(TRACE_INCLUDES " -H -Wno-error=unused-command-line-argument")
 
@@ -63,9 +64,11 @@ endif()
 add_subdirectory(deps/geometry-central)
 add_subdirectory(deps/polyscope)
 add_subdirectory(deps/ImGuiFileDialog)
+add_subdirectory(deps/fast_matrix_market)
 # == Build our project stuff
 
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/deps/ImGuiFileDialog)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/deps/fast_matrix_market)
 
 file(GLOB SRCS "src/*.cpp")
 
@@ -76,4 +79,4 @@ target_include_directories(DGP PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/include/")
 # add the args.hxx project which we use for command line args
 target_include_directories(DGP PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/deps/polyscope/deps/args")
 
-target_link_libraries(DGP geometry-central polyscope ImGuiFileDialog)
+target_link_libraries(DGP geometry-central polyscope ImGuiFileDialog fast_matrix_market)

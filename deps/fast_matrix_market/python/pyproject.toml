@@ -1,0 +1,51 @@
+[build-system]
+requires = ["scikit-build-core", "pybind11"]
+build-backend = "scikit_build_core.build"
+
+
+[project]
+name = "fast-matrix-market"
+version = "1.7.6"
+description="Fast and full-featured Matrix Market file I/O"
+readme = "README.md"
+authors = [
+    { name = "Adam Lugowski"},
+]
+license-files = ["LICENSE.txt"]
+requires-python = ">=3.7"
+
+classifiers = [
+    "Development Status :: 5 - Production/Stable ",
+    "Intended Audience :: Science/Research",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: BSD License",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Libraries",
+    "Topic :: Scientific/Engineering",
+]
+
+[project.urls]
+homepage = "https://github.com/alugowski/fast_matrix_market"
+#documentation = "https://github.com/alugowski/fast_matrix_market"
+repository = "https://github.com/alugowski/fast_matrix_market"
+
+[project.optional-dependencies]
+test = ["pytest", "scipy", "threadpoolctl"]
+testmin = ["pytest", "threadpoolctl"]
+
+[tool.scikit-build]
+wheel.expand-macos-universal-tags = true
+
+# Include .mtx files used by the tests
+[tool.setuptools.packages.find]
+where = ["tests"]
+
+# Include .mtx files used by the tests
+[tool.setuptools.package-data]
+mypkg = ["*.mtx*"]

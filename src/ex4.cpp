@@ -41,11 +41,10 @@ void Exercise4::compute_normals_with_angle_weights() {
 // ========================================================================
 void Exercise4::calc_uniform_laplacian() {
     // // ------------- IMPLEMENT HERE ---------
-    // // TODO:
     // // For each non-boundary vertex, compute uniform Laplacian operator vector
-    // // and store the vector length in the vertex property of the
-    // // mesh called vertex_curvature_weights.
+    // // and store the dot product in vertex_curvature_weights.
     // // Store min and max values in min_curvature and max_curvature.
+
     // // ------------- IMPLEMENT HERE ---------
 
 
@@ -59,9 +58,8 @@ void Exercise4::calc_uniform_laplacian() {
 // ========================================================================
 void Exercise4::calc_mean_curvature() {
     // ------------- IMPLEMENT HERE ---------
-    // // TODO:
     // For all non-boundary vertices, approximate the mean curvature using
-    // the length of the Laplace-Beltrami approximation.
+    // the dot product of the Laplace-Beltrami approximation.
     // ------------- IMPLEMENT HERE ---------
 
     std::cout << "Min. Laplace-Beltrami value is: " << min_curvature << std::endl;
@@ -73,12 +71,10 @@ void Exercise4::calc_mean_curvature() {
 // ========================================================================
 void Exercise4::calc_gauss_curvature() {
     // ------------- IMPLEMENT HERE ---------
-    // // TODO:
     // For each non-boundary vertex, approximate Gaussian curvature,
-    // and store it in the vertex property v_gauss_curvature.
+    // and store it in the vertex property vertex_curvature_weights.
     // Hint: When calculating angles out of dot products make sure the value
     // you pass to the acos function is between -1.0 and 1.0.
-    // Use the vertex_weight_ property for the area weight.
 
     // ------------- IMPLEMENT HERE ---------
 
