@@ -7,7 +7,7 @@
 #include <iostream>
 
 // ======================================================================
-// EXERCISE 1.1
+// Part 1.1
 // ========================================================================
 void Exercise6::uniform_smooth() {
 
@@ -15,16 +15,14 @@ void Exercise6::uniform_smooth() {
 
 }
 
-// ======================================================================
-// EXERCISE 1.2
-// ========================================================================
 void Exercise6::cotan_laplacian_smooth() {
 
     // TODO: ADD YOUR CODE HERE
 }
 
+
 // ======================================================================
-// EXERCISE 2
+// Part 1.2
 // ========================================================================
 void Exercise6::implicit_smooth() {
 
@@ -34,7 +32,7 @@ void Exercise6::implicit_smooth() {
     
 
 // ======================================================================
-// EXERCISE 3.1
+// Part 1.3
 // ========================================================================
 void Exercise6::uniform_laplacian_enhance_feature() {
 
@@ -42,10 +40,6 @@ void Exercise6::uniform_laplacian_enhance_feature() {
 
 }
 
-
-// ======================================================================
-// EXERCISE 3.2
-// ========================================================================
 void Exercise6::cotan_laplacian_enhance_feature() {
 
     // TODO: ADD YOUR CODE HERE
@@ -53,7 +47,7 @@ void Exercise6::cotan_laplacian_enhance_feature() {
 }
 
 // ======================================================================
-// EXERCISE 4
+// Part 2
 // ========================================================================
 void Exercise6::deform_surface(std::vector<int>& fixed_verts, const std::vector<int>& displaced_verts,
                          const Point& displacement_vector) {

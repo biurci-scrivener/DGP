@@ -89,7 +89,7 @@ class Exercise5 {
 
         void generate_sparsity_plot(SMatd A);
 
-        void p3_generate_iterate_plot(std::vector<Eigen::Vector3d> iterates);
+        void p3_generate_iterate_plot(std::vector<Eigen::Vector3d> iterates, int func_id);
 
         void polyscope_plot_vector(std::string name, Point pos, Eigen::Vector3d dir, Point color);
         void polyscope_plot_vectors(std::string name, Point pos, std::vector<Eigen::Vector3d> dirs, std::vector<Point> colors);
@@ -100,7 +100,8 @@ class Exercise5 {
 
     private:
 
-        double PLOTTING_SCALE = 1e-1;
+        double PLOTTING_SCALE_f = 5e-1;
+        double PLOTTING_SCALE_g = 1e-1;
 
         std::string file_path_base = "../matrices/";
 

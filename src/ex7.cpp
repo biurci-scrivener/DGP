@@ -3,7 +3,7 @@
 #include "geometrycentral/surface/halfedge_element_types.h"
 
 // ======================================================================
-// EXERCISE 1.1 Mapping to circle
+// Part 1.1 Mapping to circle
 // ========================================================================
 void Exercise7::map_suface_boundary_to_circle() {
 
@@ -25,7 +25,7 @@ void Exercise7::map_suface_boundary_to_circle() {
 }
 
 // ======================================================================
-// EXERCISE 1.2 Interactively smoothing the texture
+// Part 1.2 Interactively smoothing the texture
 // ========================================================================
 void Exercise7::explicitly_smooth_texture() {
 
@@ -40,7 +40,7 @@ void Exercise7::explicitly_smooth_texture() {
 }
 
 // ======================================================================
-// EXERCISE 1.3 Implicitly smoothing the texture
+// Part 1.3 Implicitly smoothing the texture
 // ========================================================================
 void Exercise7::implicitly_smooth_texture() {
     
@@ -55,7 +55,7 @@ void Exercise7::implicitly_smooth_texture() {
 }
 
 // ======================================================================
-// EXERCISE 2 Minimal Surfaces
+// Part 2 Minimal Surfaces
 // ======================================================================
 void Exercise7::minimal_surface() {
 

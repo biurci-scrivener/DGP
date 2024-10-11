@@ -199,7 +199,7 @@ void Exercise5::gradient_descent(int func_id, double step_size) {
 
     // TODO: Problem 3.1 is here.
 
-    p3_generate_iterate_plot(iters);
+    p3_generate_iterate_plot(iters, func_id);
 
 }
 
@@ -215,7 +215,7 @@ void Exercise5::newtons_method(int func_id) {
 
     // TODO: Problem 3.1 is here.
 
-    p3_generate_iterate_plot(iters);
+    p3_generate_iterate_plot(iters, func_id);
     
 }
 
@@ -334,6 +334,8 @@ void Exercise5::plot_function(int func_id) {
 
     std::vector<Vector3> points_new;
 
+    double PLOTTING_SCALE = (func_id == 0) ? PLOTTING_SCALE_f : PLOTTING_SCALE_g;
+
     for (Vertex v: gc_mesh->vertices()) {
         Vector3 pos = geometry->vertexPositions[v];
         double f_val = func(pos.x, pos.y, func_id);
@@ -349,7 +351,7 @@ void Exercise5::plot_function(int func_id) {
 
 }
 
-void Exercise5::p3_generate_iterate_plot(std::vector<Eigen::Vector3d> iterates) {
+void Exercise5::p3_generate_iterate_plot(std::vector<Eigen::Vector3d> iterates, int func_id) {
 
     std::vector<Eigen::Vector3d> dirs;
     std::vector<Vector3> pos;
@@ -357,6 +359,8 @@ void Exercise5::p3_generate_iterate_plot(std::vector<Eigen::Vector3d> iterates) 
     if (iterates.size() < 2) {
         return;
     }
+
+    double PLOTTING_SCALE = (func_id == 0) ? PLOTTING_SCALE_f : PLOTTING_SCALE_g;
 
     for (size_t i = 0; i < iterates.size() - 1; i++) {
         Eigen::Vector3d new_dir = iterates[i + 1] - iterates[i];
