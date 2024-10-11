@@ -100,7 +100,7 @@ class Exercise5 {
 
     private:
 
-        double PLOTTING_SCALE_f = 5e-1;
+        double PLOTTING_SCALE_f = 1;
         double PLOTTING_SCALE_g = 1e-1;
 
         std::string file_path_base = "../matrices/";
