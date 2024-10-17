@@ -7,20 +7,6 @@
 #include <cmath>
 #include <cstddef>
 #include <geometrycentral/surface/vertex_position_geometry.h>
-#include <geometrycentral/surface/vertex_position_geometry.h>
-#include <memory>
-
-#include "geometrycentral/surface/boundary_first_flattening.h"
-#include "geometrycentral/surface/halfedge_element_types.h"
-#include "geometrycentral/surface/manifold_surface_mesh.h"
-#include "geometrycentral/surface/meshio.h"
-#include "geometrycentral/surface/surface_mesh.h"
-#include "polyscope/curve_network.h"
-#include <geometrycentral/surface/vertex_position_geometry.h>
-#include <iostream>
-#include <memory>
-#include <polyscope/surface_mesh.h>
-
 
 using namespace polyscope;
 using namespace geometrycentral;

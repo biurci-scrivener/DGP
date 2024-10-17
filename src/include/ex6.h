@@ -8,7 +8,6 @@
 #include <memory>
 #include <polyscope/render/color_maps.h>
 #include "Eigen/Sparse"
-// #include "utils.h"
 
 using namespace geometrycentral;
 using namespace polyscope;

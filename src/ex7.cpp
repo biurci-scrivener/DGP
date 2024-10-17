@@ -1,6 +1,4 @@
 #include "include/ex7.h"
-#include <iostream>
-#include "geometrycentral/surface/halfedge_element_types.h"
 
 // ======================================================================
 // Part 1.1 Mapping to circle
