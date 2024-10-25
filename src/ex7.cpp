@@ -11,6 +11,13 @@ void Exercise7::map_suface_boundary_to_circle() {
         tex_geometry->vertexPositions[v] = _origin;
     }
 
+    if (tex_mesh->nBoundaryLoops() < 1) {
+        polyscope::warning("ERROR: This mesh has no boundary.");
+        return;
+    } 
+    
+    if (tex_mesh->nBoundaryLoops() > 1) std::cout << "Warning: This mesh has more than one boundary loop" << std::endl;
+
     // TODO: ADD YOUR CODE HERE
 
     // register mesh with polyscope
