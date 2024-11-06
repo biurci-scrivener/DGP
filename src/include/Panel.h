@@ -11,6 +11,7 @@
 #include "ex5.h"
 #include "ex6.h"
 #include "ex7.h"
+#include "ex8.h"
 
 // 全局 FileSystem 对象
 static FileSystem fs;
@@ -21,6 +22,7 @@ static Exercise4 ex4;
 static Exercise5 ex5;
 static Exercise6 ex6;
 static Exercise7 ex7;
+static Exercise8 ex8;
 using namespace ImGui;
 using Point = Vector3;
 

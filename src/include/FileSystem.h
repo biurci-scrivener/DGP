@@ -28,8 +28,8 @@ class PolygonInstance {
             std::tie(mesh, geometry) = readSurfaceMesh(name);
             ps_mesh = polyscope::registerSurfaceMesh(
                 name, geometry->vertexPositions, mesh->getFaceVertexList());
-            ps_mesh->setAllPermutations(polyscopePermutations(*mesh));
-            // ps_mesh->transformGizmo.enabled.manuallyChanged();
+            // fixes bug in https://github.com/nmwsharp/polyscope/issues/235
+            ps_mesh->setEdgePermutation(polyscopePermutations(*mesh)[2].first, mesh->nEdges());
         } catch (const std::runtime_error& e) {
             polyscope::warning("Error loading mesh: {}", e.what());
             polyscope::error("Error loading mesh: {}");

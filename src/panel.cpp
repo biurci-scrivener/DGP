@@ -547,5 +547,153 @@ void Panel::DGPPanel() {
 
     }
 
+    if (CollapsingHeader("Exercise 8", open)) {
+        AlignTextToFramePadding();
+
+        static int ex8_basis_vis_idx = -1;
+
+        if (Button("Set mesh (click before running)", full_block_size)) {
+            if (cur_mesh_id < 0 || cur_mesh_id >= static_cast<int>(fs.objnum)) {
+                polyscope::warning("Please select a mesh first");
+            } else {
+                PolygonInstance* cur_polygon = fs.getCurrentPolygon();
+                ex8.set_mesh(*cur_polygon);
+            }
+        }
+
+        if (Button("Clear all quantities", full_block_size)) {
+            if (ex8.initialized) {
+                ex8.clear_quantities();
+            }
+        }
+
+        SetWindowFontScale(1.5f);
+        Text("Hodge Decomposition");
+        SetWindowFontScale(1.0f);
+        Text("");
+
+        if (Button("Generate random 1-form (omega)", full_block_size)) {
+            if (ex8.initialized) {
+                ex8.generate_random_one_form();
+            }
+        }
+
+        if (ImGui::Button("Compute Hodge Decomposition", full_block_size)) {
+            if (ex8.initialized) {
+                if (!ex8.omega_initialized) {
+                    polyscope::warning("Initialize a random one-form over the mesh first.");
+                    return;
+                } else {
+                    ex8.hodge_decomposition();
+                    ex8.vis_hodge_decomposition();
+                }
+            }
+        }
+
+        Text("");
+
+        if (Button("Show omega", half_button_size)) {
+            if (ex8.initialized) {
+                ex8.show_hodge(0);
+            }
+        }
+        SameLine(250);
+        if (Button("Show alpha/d-alpha (curl-free)", half_button_size)) {
+            if (ex8.initialized) {
+                ex8.show_hodge(1);
+            }
+        }
+
+        if (Button("Show beta/delta-beta (div-free)", half_button_size)) {
+            if (ex8.initialized) {
+                ex8.show_hodge(2);
+            }
+        }
+        SameLine(250);
+        if (Button("Show gamma (harmonic)", half_button_size)) {
+            if (ex8.initialized) {
+                ex8.show_hodge(3);
+            }
+        }
+
+        Text("");
+        SetWindowFontScale(1.5f);
+        Text("Homology Generators");
+        SetWindowFontScale(1.0f);
+        Text("");
+
+        if (ex8.initialized) {
+            ImGui::Text("Euler characteristic: %i", ex8.computeEulerCharacteristic());
+        }
+
+        if (Button("Build tree/cotree", full_block_size)) {
+            if (ex8.initialized) {
+                if (ex8.nConnectedComponents() > 1) {
+                    polyscope::warning("ERROR: This mesh has more than one connected component.");
+                } else {
+                    ex8.build_dual_spanning_cotree();
+                    ex8.build_primal_spanning_tree();
+                    ex8.buildTreeCotreeGraph();
+                }
+            }
+        }
+
+        if (Button("Compute homology generators", full_block_size)) {
+            if (ex8.initialized && ex8.hasTree()) {
+                ex8.build_generators();
+                ex8.buildGeneratorsGraph();
+            }
+        }
+
+        if (Button("Compute harmonic basis", full_block_size)) {
+            if (ex8.initialized) {
+                ex8.generate_harmonic_basis();
+                ex8.buildHarmonicBasisVis();
+            } 
+        }
+
+        if (Button("Test harmonic decomposition", full_block_size)) {
+            if (ex8.initialized) {
+                ex8.harmonic_decomposition();
+            }
+        }
+
+        Text("");
+
+        if (Button("Show tree/cotree", full_block_size)) {
+            if (ex8.initialized) {
+                ex8.show_tree_cotree();
+            }
+        }
+
+        if (Button("Show generators", full_block_size)) {
+            if (ex8.initialized) {
+                ex8.show_generators();
+            }
+        }
+
+        if (Button("Show init. edge per gen.", full_block_size)) {
+            if (ex8.initialized) {
+                ex8.show_generators_init();
+            }
+        }
+
+        if (Button("Show harmonic basis elems.", ImVec2(full_block_size.x - 100, 25))) {
+            if (ex8.initialized) {
+                ex8_basis_vis_idx = -1;
+                ex8.show_harmonic_basis(ex8_basis_vis_idx);
+            }
+        }
+        SameLine(full_block_size.x + spacing - 100);
+        if (Button("Next", ImVec2(100, 25))) {
+            if (ex8.initialized) {
+                size_t genus = (size_t)(-(ex8.computeEulerCharacteristic() - 2));
+                ex8_basis_vis_idx = (int)((size_t)(ex8_basis_vis_idx + 1) % genus);
+                ex8.show_harmonic_basis(ex8_basis_vis_idx);
+            }
+        }
+
+    }
+
     End();
 }
