@@ -130,7 +130,7 @@ void Exercise8::harmonic_decomposition() {
         harmonic part extracted by hodge_decomposition().
 
         Print the rank of the RHS, the solution to the linear system, and
-        ||omega_appox - omega||, which should be close to 0.
+        ||gamma_appox - gamma||, which should be close to 0.
     */
 
 
